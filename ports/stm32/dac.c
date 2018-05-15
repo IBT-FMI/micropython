@@ -333,7 +333,7 @@ STATIC mp_obj_t pyb_dac_write(mp_obj_t self_in, mp_obj_t val) {
     if (self->state != DAC_STATE_WRITE_SINGLE) {
         DAC_ChannelConfTypeDef config;
         config.DAC_Trigger = DAC_TRIGGER_NONE;
-        config.DAC_OutputBuffer = DAC_OUTPUTBUFFER_DISABLE;
+        config.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
         HAL_DAC_ConfigChannel(&DAC_Handle, &config, self->dac_channel);
         self->state = DAC_STATE_WRITE_SINGLE;
     }
